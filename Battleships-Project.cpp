@@ -1,40 +1,84 @@
 #include <iostream>
+#include <Windows.h>
+
 
 int main() 
 {
-	/*matrizJogo é a matriz que o jogader vê durante a partida e atualiza
-	de acordo com as tentativas do jogador*/
-	char matrizJogo[10][10]{}, matrizResposta[10][10]{};
+	/*	
+	matrizJogo é a matriz que o jogader vê durante a partida e atualiza
+	de acordo com as tentativas do jogador
+	*/
+	const int maxLinha{ 10 }, maxColuna{ 10 };
+	char matrizJogo[maxLinha][maxColuna]{}, matrizResposta[maxLinha][maxColuna]{};
 
-	for (int i = 0; i < 10; i++)
+	for (int i{ 0 }; i < maxLinha; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j{ 0 }; j < maxColuna; j++)
 		{
-			matrizJogo[i][j] = 126;
+			matrizJogo[i][j] = '~';
+
+			/*
+			if (i == 2 && j == 0)//posição arbitraria de resposta para teste
+			{
+				matrizResposta[i][j] = '*';
+			}
+			*/
 		}
 	}
 
-	//variaveis de posição da matriz usada durante jogo  
+	//tentativas é usado ao fim do loop de jogo principal
+	int tentativas{10};
 	int linha{};
-	std::cout << "Insira linha: ";
-	std::cin >> linha;
-
 	int coluna{};
-	std::cout << "insira coluna: ";
-	std::cin >> coluna;
-	
-	//Valor sinalizando onde jogador atirou, ainda a definir simbolos de acerto e erro
-	matrizJogo[linha - 1][coluna - 1] = 42;
 
-	for (int i = 0; i < 10; i++)
+	//loop de game principal
+	do 
 	{
-		for (int j = 0; j < 10; j++)
+		for (int i = 0; i < maxLinha; i++)
 		{
-			std::cout << matrizJogo[i][j] << " ";
+			std::cout << "\t\t\t\t\t\t";
+			for (int j = 0; j < maxColuna; j++)
+			{
+				std::cout << matrizJogo[i][j] << " ";
+			}
+			std::cout << '\n';
 		}
-	
-		std::cout << std::endl;
 
+		//variaveis de posição da matriz usada durante jogo  
+		std::cout << "Insira linha: ";
+		std::cin >> linha;
+
+		std::cout << "insira coluna: ";
+		std::cin >> coluna;
+
+		matrizJogo[linha - 1][coluna - 1] = '*';
+
+		//Verificação de acerto ou erro de tiro
+		if (matrizJogo[linha - 1][coluna - 1] == matrizResposta[linha - 1][coluna - 1])
+		{
+			//Acerto
+			matrizJogo[linha - 1][coluna - 1] = 'v';
+
+			tentativas += 2;
+			std::cout << "Tentativas: " << tentativas << '\n';
+		}
+		else
+		{
+			//Erro
+			matrizJogo[linha - 1][coluna - 1] = 'x';
+
+			tentativas--;
+			std::cout << "Tentativas: " << tentativas << '\n';
+		}
+
+		system("pause");
+		system("cls");
+
+	} while (tentativas > 0);
+
+	if (tentativas == 0)
+	{
+		std::cout << "zero tentativas" << std::endl;
 	}
 
 	return 0;
@@ -48,10 +92,12 @@ int main()
 *	[ ] Geração dos alvos no campo para serem encontrados
 *	[ ] Aleatorizar a posição dos alvos no campo de forma ordenada
 *	[x] Recebeer 2 valores do jogador para indicar qual posição do campo atacar
-*	[ ] Traduzir os dois valores para pontos no campo de jogo e campo de resposta
-*	[ ] Comparar posições no campo principal e de resposta para confirmar 
+*	[x] Traduzir os dois valores para pontos no campo de jogo e campo de resposta
+*	[x] Comparar posições no campo principal e de resposta para confirmar 
 *		um acerto ou erro
-*	[ ] Contagem de acertos e erros de jogador
+*	[x] Contagem de acertos e erros de jogador
+*	[ ] Checar se jogador não colocou posição inválida na entrada de valores
+*	[ ] Verificar se jogador repetiu valores na entrada de valores
 *	{ } Interface de menu principal
 *	{ } Salvamento de pontuação
 *	{ } Tabela das 10 pontuações mais altas
@@ -64,4 +110,3 @@ int main()
 *	{ } = requisito opcional ainda a ser alcançado
 *	{x} = requisito opcional cumprido
 */
-
