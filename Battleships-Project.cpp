@@ -28,6 +28,8 @@ int main()
 
 	//tentativas é usado ao fim do loop de jogo principal
 	int tentativas{10};
+
+	//variaveis de posição da matriz usada durante jogo 
 	int linha{};
 	int coluna{};
 
@@ -44,13 +46,25 @@ int main()
 			std::cout << '\n';
 		}
 
-		//variaveis de posição da matriz usada durante jogo  
 		std::cout << "Insira linha: ";
 		std::cin >> linha;
 
 		std::cout << "insira coluna: ";
 		std::cin >> coluna;
 
+		//limitar entrada so usuário para apenas o numero de linhas e colunas
+		while (linha > maxLinha || linha < 1 || coluna > maxColuna || coluna < 1)
+		{
+			std::cout << "Valor para linha ou coluna invalido, insira valores de 1 a 10 \n";
+
+			std::cout << "Linha: ";
+			std::cin >> linha;
+
+			std::cout << "Coluna: ";
+			std::cin >> coluna;
+		}
+
+		//Marcação para comparar com matrizResposta e decidir acerto ou erro
 		matrizJogo[linha - 1][coluna - 1] = '*';
 
 		//Verificação de acerto ou erro de tiro
@@ -96,8 +110,9 @@ int main()
 *	[x] Comparar posições no campo principal e de resposta para confirmar 
 *		um acerto ou erro
 *	[x] Contagem de acertos e erros de jogador
-*	[ ] Checar se jogador não colocou posição inválida na entrada de valores
-*	[ ] Verificar se jogador repetiu valores na entrada de valores
+*	[x] Checar se jogador não colocou posição inválida na entrada de valores
+*	[ ] Verificar se jogador repetiu tentativas na entrada de valores
+*	[ ] Limpar e otimizar código
 *	{ } Interface de menu principal
 *	{ } Salvamento de pontuação
 *	{ } Tabela das 10 pontuações mais altas
