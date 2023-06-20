@@ -46,23 +46,23 @@ int main()
 			std::cout << '\n';
 		}
 
-		std::cout << "Insira linha: ";
-		std::cin >> linha;
-
-		std::cout << "insira coluna: ";
-		std::cin >> coluna;
-
-		//limitar entrada so usuário para apenas o numero de linhas e colunas
-		while (linha > maxLinha || linha < 1 || coluna > maxColuna || coluna < 1)
+		do
 		{
-			std::cout << "Valor para linha ou coluna invalido, insira valores de 1 a 10 \n";
-
-			std::cout << "Linha: ";
+			std::cout << "Insira linha: " << std::endl;
 			std::cin >> linha;
 
-			std::cout << "Coluna: ";
+			std::cout << "insira coluna: " << std::endl;
 			std::cin >> coluna;
-		}
+			
+			if (matrizJogo[linha - 1][coluna - 1] == 'x')
+			{
+				std::cout << "Você já atirou nessa posição";
+
+				tentativas++;
+			}
+			
+		} while (linha > maxLinha || linha < 1 || coluna > maxColuna || coluna < 1);
+		//limitar entrada so usuário para apenas o numero de linhas e colunas do jogo
 
 		//Marcação para comparar com matrizResposta e decidir acerto ou erro
 		matrizJogo[linha - 1][coluna - 1] = '*';
