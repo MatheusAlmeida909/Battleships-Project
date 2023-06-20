@@ -54,7 +54,7 @@ int main()
 			std::cout << "insira coluna: " << std::endl;
 			std::cin >> coluna;
 			
-			if (matrizJogo[linha - 1][coluna - 1] == 'x')
+			if (matrizJogo[linha - 1][coluna - 1] == 'x' || matrizJogo[linha - 1][coluna - 1] == 'v')
 			{
 				std::cout << "Você já atirou nessa posição";
 
@@ -97,7 +97,6 @@ int main()
 
 	return 0;
 }
-
 
 /*		Requisitos funcionais
 * 
