@@ -1,7 +1,6 @@
 #include <iostream>
 #include <Windows.h>
 
-
 int main() 
 {
 	/*	
@@ -26,8 +25,14 @@ int main()
 		}
 	}
 
+
+
 	//tentativas é usado ao fim do loop de jogo principal
 	int tentativas{10};
+
+	//contadores para a pontuação final 
+	int acertos{};
+	int erros{};
 
 	//variaveis de posição da matriz usada durante jogo 
 	int linha{};
@@ -59,6 +64,8 @@ int main()
 				std::cout << "Você já atirou nessa posição";
 
 				tentativas++;
+				
+				continue;
 			}
 			
 		} while (linha > maxLinha || linha < 1 || coluna > maxColuna || coluna < 1);
@@ -73,6 +80,8 @@ int main()
 			//Acerto
 			matrizJogo[linha - 1][coluna - 1] = 'v';
 
+			++acertos;
+
 			tentativas += 2;
 			std::cout << "Tentativas: " << tentativas << '\n';
 		}
@@ -80,6 +89,8 @@ int main()
 		{
 			//Erro
 			matrizJogo[linha - 1][coluna - 1] = 'x';
+
+			++erros;
 
 			tentativas--;
 			std::cout << "Tentativas: " << tentativas << '\n';
@@ -89,6 +100,8 @@ int main()
 		system("cls");
 
 	} while (tentativas > 0);
+
+	int pontuação{ acertos * 100 + tentativas * 25 - erros * 15 };
 
 	if (tentativas == 0)
 	{
@@ -110,7 +123,9 @@ int main()
 *		um acerto ou erro
 *	[x] Contagem de acertos e erros de jogador
 *	[x] Checar se jogador não colocou posição inválida na entrada de valores
-*	[ ] Verificar se jogador repetiu tentativas na entrada de valores
+*	[x] Verificar se jogador repetiu tentativas na entrada de valores
+*	[x] Sistema de pontuação
+*	[ ] Entrada do nome/sigla do jogador para a tabela de pontuação
 *	[ ] Limpar e otimizar código
 *	{ } Interface de menu principal
 *	{ } Salvamento de pontuação
