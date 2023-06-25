@@ -8,24 +8,16 @@ int main()
 	de acordo com as tentativas do jogador
 	*/
 	const int maxLinha{ 10 }, maxColuna{ 10 };
-	char matrizJogo[maxLinha][maxColuna]{}, matrizResposta[maxLinha][maxColuna]{};
+	char matrizJogo[maxLinha][maxColuna]{};
+	char matrizResposta[maxLinha][maxColuna]{};
 
 	for (int i{ 0 }; i < maxLinha; i++)
 	{
 		for (int j{ 0 }; j < maxColuna; j++)
 		{
 			matrizJogo[i][j] = '~';
-
-			/*
-			if (i == 2 && j == 0)//posição arbitraria de resposta para teste
-			{
-				matrizResposta[i][j] = '*';
-			}
-			*/
 		}
 	}
-
-
 
 	//tentativas é usado ao fim do loop de jogo principal
 	int tentativas{10};
@@ -50,6 +42,20 @@ int main()
 			}
 			std::cout << '\n';
 		}
+
+		/* exibição de resposta para teste
+		* 
+		* for (int i = 0; i < maxLinha; i++)
+		{
+			std::cout << "\t\t\t\t\t\t";
+			for (int j = 0; j < maxColuna; j++)
+			{
+				std::cout << matrizResposta[i][j] << " ";
+			}
+			std::cout << '\n';
+		}
+		* 
+		*/
 
 		do
 		{
@@ -125,15 +131,17 @@ int main()
 *	[x] Checar se jogador não colocou posição inválida na entrada de valores
 *	[x] Verificar se jogador repetiu tentativas na entrada de valores
 *	[x] Sistema de pontuação
+*	[ ] Salvamento de pontuação
 *	[ ] Entrada do nome/sigla do jogador para a tabela de pontuação
 *	[ ] Limpar e otimizar código
 *	{ } Interface de menu principal
-*	{ } Salvamento de pontuação
 *	{ } Tabela das 10 pontuações mais altas
 *	{ } Salvar iniciais do jogador para fácil distinção na tabela de pontuação
 *	{ }	Implementar seleção de dificuldade
 *	{ } Dificuldade personalizada
-* 
+*	
+*	-----------------------------------------------------------------------------
+*	
 *	[ ] = requisito ainda a ser cumprido
 *	[x] = requisito cumprido
 *	{ } = requisito opcional ainda a ser alcançado
