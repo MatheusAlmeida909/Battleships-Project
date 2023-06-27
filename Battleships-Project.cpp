@@ -19,24 +19,54 @@ int main()
 		}
 	}
 
+	int qntdNavios{ 7 };
+
+	//Gerador de respostas
+	for (int i{ 0 }; i < qntdNavios; i++)
+	{
+		matrizResposta[/*randomizador*/][/*randomizador*/] = '*';
+	}
+
+	for (int i{ 0 }; i < maxLinha; i++)
+	{
+		for (int j{ 0 }; j < maxColuna; j++)
+		{
+			if (matrizResposta[i][j] == '*')
+			{
+				if (i >= 9)
+				{
+					for (j; j < /*valor aleatório de 2 a 5*/; j--)
+					{
+						matrizResposta[i][j] == '*';
+					}
+				}
+				else
+				{
+					for (j; j < /*valor aleatório de 2 a 5*/; j++)
+					{
+
+					}
+				}
+			}
+		}
+	}
+	  
 	//tentativas é usado ao fim do loop de jogo principal
 	int tentativas{10};
 
-	//contadores para a pontuação final 
 	int acertos{};
 	int erros{};
 
-	//variaveis de posição da matriz usada durante jogo 
 	int linha{};
 	int coluna{};
 
 	//loop de game principal
 	do 
 	{
-		for (int i = 0; i < maxLinha; i++)
+		for (int i{ 0 }; i < maxLinha; i++)
 		{
 			std::cout << "\t\t\t\t\t\t";
-			for (int j = 0; j < maxColuna; j++)
+			for (int j{ 0 }; j < maxColuna; j++)
 			{
 				std::cout << matrizJogo[i][j] << " ";
 			}
