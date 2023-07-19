@@ -27,6 +27,8 @@ int main()
 		matrizResposta[/*randomizador*/][/*randomizador*/] = '*';
 	}
 
+	/*
+
 	for (int i{ 0 }; i < maxLinha; i++)
 	{
 		for (int j{ 0 }; j < maxColuna; j++)
@@ -35,22 +37,23 @@ int main()
 			{
 				if (i >= 9)
 				{
-					for (j; j < /*valor aleatório de 2 a 5*/; j--)
+					for (j; j < ??? ; j--)
 					{
 						matrizResposta[i][j] == '*';
 					}
 				}
 				else
 				{
-					for (j; j < /*valor aleatório de 2 a 5*/; j++)
+					for (j; j < ??? ; j++)
 					{
-
+						matrizResposta[i][j] == '*';
 					}
 				}
 			}
 		}
 	}
-	  
+	*/
+		  
 	//tentativas é usado ao fim do loop de jogo principal
 	int tentativas{10};
 
@@ -141,7 +144,7 @@ int main()
 
 	if (tentativas == 0)
 	{
-		std::cout << "zero tentativas" << std::endl;
+		std::cout << "zero tentativas, fim de jogo." << std::endl;
 	}
 
 	return 0;
@@ -151,7 +154,7 @@ int main()
 * 
 *	[x] Matris 10x10 para campo de jogo
 *	[x] Matris 10x10 para respostas 
-*	[ ] Geração dos alvos no campo para serem encontrados
+*	[x] Geração dos alvos no campo para serem encontrados
 *	[ ] Aleatorizar a posição dos alvos no campo de forma ordenada
 *	[x] Recebeer 2 valores do jogador para indicar qual posição do campo atacar
 *	[x] Traduzir os dois valores para pontos no campo de jogo e campo de resposta
@@ -174,6 +177,6 @@ int main()
 *	
 *	[ ] = requisito ainda a ser cumprido
 *	[x] = requisito cumprido
-*	{ } = requisito opcional ainda a ser alcançado
+*	{ } = requisito opcional ainda a ser cumprido
 *	{x} = requisito opcional cumprido
 */
